@@ -1,20 +1,26 @@
+
+
+
 {% extends "blog/base.html" %}
 {% block content %}
-<h1>
-    My Blog
-</h1>
+
+<div class="container">
+<div class="row">  
 {% for post in posts %}
 
-<h2>
-    <a href="{{ post.get_absolute_url }}"">
-        {{post.title}}
-    </a>
-</h2>
-<p class="date">
-    Published {{post.publish}} by {{post.author}}
 
-</p>
-{{post.body |truncatewords:30|linebreaks }}
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title" >{{post.title}} </h5>
+          <p class="card-text">{{post.body |truncatewords:30|linebreaks }}</p>
+          <a href="{{ post.get_absolute_url }}" class="btn btn-primary">Read Article</a>
+        </div>
+      </div>
+    </div>
+
 {%endfor%}
+</div>
+<br>
 {% include "pagination.html" with page=page_obj %}
 {%endblock%}
