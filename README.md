@@ -1,2 +1,3 @@
 # Blog-Application
-this is a django based blog project
+This Project is Based on Django
+Any help will be appreciated.....
